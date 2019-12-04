@@ -1,0 +1,33 @@
+version: '3'
+networks:
+   network1: 
+   network2:
+services:
+   db_container:
+      build:
+        context: ./database
+        dockerfile: Dockerfile
+      command: --default-authentication-plugin=mysql_native_password
+      networks:
+      - network2
+   proxy_container:
+      build:
+        context: ./proxy
+        dockerfile: DockerfileProx
+      networks: 
+      - network1
+      depends_on:
+      - backend_container
+      ports:
+      - "80:80"
+      #port:
+      #- 433:433
+   backend_container:
+      build:
+        context: ./backend
+        dockerfile: Dockerfile
+      networks:
+        - network1
+        - network2
+      depends_on:
+      - db_container
