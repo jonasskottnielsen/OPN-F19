@@ -7,5 +7,3 @@ CREATE TABLE Persontable (
 	fname VARCHAR(30) NOT NULL,
 	lname VARCHAR(50) NOT NULL
 );
-
-INSERT INTO Persontable (fname, lname) VALUES ('jonas', 'nielsen');

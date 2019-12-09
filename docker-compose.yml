@@ -18,10 +18,12 @@ services:
       - network1
       depends_on:
       - backend_container
+      #ports:
+      #- "80:80"
       ports:
-      - "80:80"
-      #port:
-      #- 433:433
+      - 443:443
+      volumes: 
+      - ./proxy:/etc/nginx/certs
    backend_container:
       build:
         context: ./backend
