@@ -34,8 +34,8 @@ def persons():
         person = {}   
         for row in records:
             person = {
-            "PersonID": row[1],
-            "Firstname": row[0], 
+            "PersonID": row[0],
+            "Firstname": row[1], 
             "Lastname": row[2]}
 
             personlist.append(person)
